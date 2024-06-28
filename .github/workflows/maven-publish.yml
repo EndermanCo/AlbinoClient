@@ -26,9 +26,11 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Unzip test_run
+      uses: Create working dircetory
       run: git clone https://github.com/Marcelektro/MavenMCP-1.8.9 && cp /home/runner/work/AlbinoClient/AlbinoClient/MavenMCP-1.8.9/* /home/runner/work/AlbinoClient/AlbinoClient
 
-    - name: add libraries
+    - name: Add libraries
+      uses: Add discord sdk
       run: cd test_native && wget https://github.com/JnCrMx/discord-game-sdk4j/releases/download/v0.5.5/windows-amd64-discord_game_sdk_jni.dll
 
     - name: Build with Maven
